@@ -1,7 +1,11 @@
 package com.educandoweb.course.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.educandoweb.course.entities.base.BaseEntity;
 
@@ -12,6 +16,9 @@ public class Category extends BaseEntity{
 	private static final long serialVersionUID = 1L;
 
 	private String name;
+	
+	@Transient
+	private Set<Product> products = new HashSet<>();
 	
 	public Category() {
 		super();
@@ -30,5 +37,11 @@ public class Category extends BaseEntity{
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public Set<Product> getProducts() {
+		return products;
+	}
+	
+	
 
 }
