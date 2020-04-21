@@ -48,6 +48,14 @@ public class Order extends BaseEntity{
 		setOrderStatus(orderStatus);
 		this.client = client;
 	}
+	
+	public Double getTotal() {
+		double sum = 0.0;
+		for(OrderItem item : items) {
+			sum += item.getSubTotal();
+		}
+		return sum;
+	}
 
 	public Instant getMoment() {
 		return moment;
